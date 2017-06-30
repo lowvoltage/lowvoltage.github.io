@@ -8,3 +8,5 @@ kramdown:
   syntax_highlighter: rouge
   extensions: fenced_code_blocks
 
+
+theme: jekyll-theme-dinky
