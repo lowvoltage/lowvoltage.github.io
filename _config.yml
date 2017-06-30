@@ -1,0 +1,10 @@
+name: Dimitar Kovachev
+markdown: kramdown
+permalink: /:year/:month/:day/:title
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  extensions: fenced_code_blocks
+
