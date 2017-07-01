@@ -2,12 +2,12 @@
 title: Low voltage. Mostly harmless...
 description: >
   Exploring electronics, programming and photography
+google_analytics: UA-101952232-1
 
 # Personal info
 author: Dimitar Kovachev
 email: d.kovachev@gmail.com
 github_username: lowvoltage
-google_analytics: UA-101952232-1
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
