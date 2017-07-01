@@ -1,12 +1,42 @@
-name: Dimitar Kovachev
+# Site info
+title: Low voltage. Mostly harmless...
+description: >
+  Exploring electronics, programming and photography
+
+# Personal info
+author: Dimitar Kovachev
+email: d.kovachev@gmail.com
+github_username: lowvoltage
+google_analytics: UA-101952232-1
+
+# Minima date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%b %-d, %Y"
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+#header_pages:
+# - about.html
+
+# Build settings
 markdown: kramdown
+theme: minima
 permalink: /:year/:month/:day/:title
+exclude:
+  - Gemfile
+  - Gemfile.lock
 
 kramdown:
   input: GFM
   hard_wrap: false
   syntax_highlighter: rouge
   extensions: fenced_code_blocks
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
+gems:
+  - jekyll-feed
+  - jekyll-sitemap
 
-theme: jekyll-theme-dinky
