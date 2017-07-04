@@ -3,6 +3,8 @@ title: Low voltage. Mostly harmless...
 description: >
   Exploring electronics, programming and photography
 google_analytics: UA-101952232-1
+disqus:
+  shortname: lowvoltage
 
 # Personal info
 author: Dimitar Kovachev
