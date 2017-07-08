@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Garbled Text over Serial?!"
+title: "Garbled Text over Serial? No need to worry"
 date: 2017-07-08
 ---
 
