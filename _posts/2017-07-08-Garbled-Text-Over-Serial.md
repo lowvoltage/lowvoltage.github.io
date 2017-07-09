@@ -2,6 +2,8 @@
 layout: post
 title: "Garbled Text over Serial?!"
 date: 2017-07-08
+summary: "A bunch of grabage symbols is nothing to worry about"
+categories: ESP8266 NodeMCU Serial
 ---
 
 When programming the NodeMCU ESP8266 in the Arduino IDE and using a common 

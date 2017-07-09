@@ -76,7 +76,7 @@ text:
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: /:year/:month/:day/:title
 paginate: 5
 gems:
   - jekyll-feed
