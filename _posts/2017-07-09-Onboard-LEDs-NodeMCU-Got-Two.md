@@ -27,7 +27,7 @@ The NodeMCU ESP8266 board has two of those LEDs! One on the NodeMCU PCB and anot
 
 ## Notes
 Both LEDs operate in “inverted” mode, with regard to the pin levels - when the pin is HIGH, the LED is off; when the pin is LOW, the LED is on.
-The LED on `GPIO2` flashes during EPS programming, as it is connected to the `U1TXD` pin.
+The LED on `GPIO2` flashes during ESP programming, as it is connected to the `U1TXD` pin.
 
 
 ## NodeMCU LED Blink
@@ -61,6 +61,6 @@ void loop() {
 ```
 
 ## Links
-* [NodeMCU v.1.0 Schematic (.pdf)](https://github.com/nodemcu/nodemcu-devkit-v1.0/blob/master/NODEMCU_DEVKIT_V1.0.PDF)
-* [ESP-12E Schematic (.png)](http://www.esp8266.com/wiki/lib/exe/fetch.php?media=schematic_esp-12e.png)
-* [ESP8266 Blink (.ino)](https://github.com/esp8266/Arduino/blob/master/libraries/esp8266/examples/Blink/Blink.ino)
+* [<i class="fa fa-file-pdf-o fa-lg"></i>    NodeMCU v.1.0 Schematic	](https://github.com/nodemcu/nodemcu-devkit-v1.0/blob/master/NODEMCU_DEVKIT_V1.0.PDF)
+* [<i class="fa fa-file-image-o fa-lg"></i>  ESP-12E Schematic		](http://www.esp8266.com/wiki/lib/exe/fetch.php?media=schematic_esp-12e.png)
+* [<i class="fa fa-file-code-o fa-lg"></i>   ESP8266 Blink Sketch	](https://github.com/esp8266/Arduino/blob/master/libraries/esp8266/examples/Blink/Blink.ino)
