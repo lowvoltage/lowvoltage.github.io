@@ -4,18 +4,18 @@ title: "Raspberry Pi as a MQTT server"
 date: 2017-07-13
 categories: "Raspberry Pi" MQTT
 ---
-This is a step-by-step guide on how to install Raspbian on a headless Raspberry Pi Zero W, configure basic system services and install the [`mosquitto`](https://mosquitto.org/) MQTT server. Some of the steps are just a convenience and are optional.
+This is a step-by-step guide on how to install Raspbian on a headless Raspberry Pi Zero W, configure basic system services and setup the [`mosquitto`](https://mosquitto.org/) MQTT server. Some of the steps are mostly for convenience and are optional.
 
 ## Required hardware
 * Raspberry Pi Zero W (Wireless)
-* Micro SD card, 4Gb or more
-* A 5V power adapter and a Micro USB cable
+* microSD card, 4Gb or more
+* A 5V power adapter and a micro USB cable
 
 ## Install a Raspberry Pi image
-Download the "Raspbian Jessie Lite" image from https://www.raspberrypi.org/downloads/raspbian/ and install it on a micro-SD card. This is a distribution specifically for headless installations (it comes with no graphical UI) and it's only 1.3Gb.
+Download the "Raspbian Jessie Lite" image from https://www.raspberrypi.org/downloads/raspbian/ and install it on a micro-SD card. This is a slimmed-down distribution for headless installations and comes with no graphical UI.
 
 ## Setup WiFi network access
-With the SD card still connected to your computer, open the newly created "boot" drive / partition. Its size should be about 42Mb. Create a `wpa_supplicant.conf` file and fill-in your WiFi credentials:
+With the SD card still connected to your computer, open the newly created "boot" drive / partition. Its size should be about 40Mb. Create a `wpa_supplicant.conf` file and fill-in your WiFi credentials:
 ```
 network={
        ssid="NetworkSSID"
@@ -41,7 +41,7 @@ network={
 Create a file on the "boot" partition named `ssh` (no extension)
 
 ## Power on the Raspberry Pi
-Plug in the SD card and connect the power cable. There will be a couple of minutes of initial activity. If everything works fine, the Pi should receive a dynamic IP address from your network's router.
+Plug in the SD card and connect the power cable. There will be a minute or so of initial activity. If everything works fine, the Pi should receive a dynamic IP address from your network's router.
 
 ## Assign a static IP
 In your router's web interface, check for a "raspberrypi" DHCP client and assign a fixed (static) IP address to it. Let's say this IP is `192.168.0.60`.
@@ -75,6 +75,7 @@ $ sudo reboot
 
 ## Add your public SSH key
 There are a couple of ways to transfer your [SSH public key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key) to the Raspberry:
+
 ### 1. Copy-paste: 
 Copy the contents of id_rsa.pub to the clipboard. The on the Pi's command line:
 ```
@@ -83,6 +84,7 @@ $ cat >> ~/.ssh/authorized_keys
 (Paste from clipboard)
 (Press Ctrl+D)
 ```
+
 ### 2. Download from GitHub
 If your public key is already on GitHub, it's a one-line command to get it in place:
 ```
@@ -90,10 +92,10 @@ $ mkdir .ssh
 $ curl https://github.com/<username>.keys | tee -a ~/.ssh/authorized_keys
 ```
 
-Logout and ssh into the Pi again to test the key-based authentication. There should be no prompt for a password.
+Logout and login into the Pi again to test the key-based authentication. There should be no prompt for a password.
 
 ## Tighten up security
-Pi's default username and password are an obvious security risk and with SSH access enabled we can fully disable password-based authentication. 
+Pi's default username and password are an obvious security risk, but with SSH access enabled we can safely disable password-based authentication. 
 ```
 $ sudo vim /etc/ssh/sshd_config
 ```
@@ -126,14 +128,14 @@ and add a line before "exit 0":
 ```
 /usr/bin/tvservice -o
 ```
-It's also possible to [disable the LED](https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi)
+It's also possible to [disable the status LED](https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi)
 
 ## Install `mosquitto`
 Both the `mosquitto` server and the `mosquitto_sub` & `mosquitto_pub` command-line utilities can be installed from the default repositories:
 ```
 $ sudo apt-get install -y mosquitto mosquitto-clients
 ```
-The server should be automatically started and we can check its status with
+The server starts automatically and we can check its status with:
 ```
 $ sudo service mosquitto status
 
@@ -150,15 +152,14 @@ To test the command-line tools we need two terminals open:
 ```
 (In terminal 1)
 $ mosquitto_sub -t "test/topic" -v
-(Will listen to incoming messages. Press Ctrl+C to exit)
 ```
 ```
 (In terminal 2)
-$ mosquitto_pub -t "test/topic" -m "hello world"
+$ mosquitto_pub -t "test/topic" -m "Hello, world"
 ```
+The "Hello, world" message is published to the "test/topic" MQTT topic in terminal 2 and is received and printed in terminal 1.
 
 ## `mosquitto` cheatsheet
-Here are the server files' locations and control commands:
 ```
 Config file location:  /etc/mosquitto/mosquitto.conf
 Log file location:     /var/log/mosquitto/mosquitto.log
