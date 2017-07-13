@@ -2,8 +2,9 @@
 layout: post
 title: "Raspberry Pi as a MQTT server"
 date: 2017-07-13
-categories: "Raspberry Pi" MQTT
+categories: RaspberryPi MQTT
 ---
+
 This is a step-by-step guide on how to install Raspbian on a headless Raspberry Pi Zero W, configure basic system services and setup the [`mosquitto`](https://mosquitto.org/) MQTT server. Some of the steps are mostly for convenience and are optional.
 
 ## Required hardware
