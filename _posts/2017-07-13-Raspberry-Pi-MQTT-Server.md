@@ -5,7 +5,7 @@ date: 2017-07-13
 categories: RaspberryPi MQTT
 ---
 
-This is a step-by-step guide on how to install Raspbian on a headless Raspberry Pi Zero W, configure basic system services and setup the [`mosquitto`](https://mosquitto.org/) MQTT server. Some of the steps are mostly for convenience and are optional.
+With a price tag of 10$, a form-factor of a business card, power usage under 1 Watt and yet an 1GHz CPU and built-in WiFi, the Raspberry Pi Zero W makes for a great platform for experiments with Linux, networking, software development and tinkering in general. This is a step-by-step guide on how to install Raspbian on a headless Raspberry Pi Zero W, configure a couple of system services and setup a [`mosquitto`](https://mosquitto.org/) MQTT server. Some of the steps are mostly for convenience and are optional.
 
 ## Required hardware
 * Raspberry Pi Zero W (Wireless)
@@ -176,7 +176,7 @@ Command-line options for "mosquitto_sub" and "mosquitto_pub":
        -v     verbose mode
 ```
 
-## Links
+## Resources
 * https://raspberrypi.stackexchange.com/questions/62933/set-up-a-raspberry-pi-zero-w-without-monitor-or-ethernet-module
 * https://mattwilcox.net/web-development/setting-up-a-secure-home-web-server-with-raspberry-pi
 * https://www.linode.com/docs/security/securing-your-server/
